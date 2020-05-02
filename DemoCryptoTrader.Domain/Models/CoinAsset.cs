@@ -4,11 +4,10 @@ using System.Text;
 
 namespace DemoCryptoTrader.Domain.Models
 {
-    class Coin
-    {
-        public int Id { get; set; }
+    public class CoinAsset
+    { 
         public string Symbol { get; set; }
         public string Name { get; set; }
-        public double Usd { get; set; }
+        public double Price { get; set; }
     }
 }

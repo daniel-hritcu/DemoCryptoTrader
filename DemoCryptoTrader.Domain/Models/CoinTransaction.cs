@@ -4,13 +4,13 @@ using System.Text;
 
 namespace DemoCryptoTrader.Domain.Models
 {
-    class CoinTransaction
+    public class CoinTransaction
     {
+        public int Id { get; set; }
         public Account Account { get; set; }
         public bool IsPurchase { get; set; }
-        public Coin Coin { get; set; }
+        public CoinAsset Coin { get; set; }
         public double Ammount { get; set; }
-        public double Price { get; set; }
         public DateTime DateProcessed { get; set; }
     }
 }

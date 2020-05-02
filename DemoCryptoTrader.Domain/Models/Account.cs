@@ -4,7 +4,7 @@ using System.Text;
 
 namespace DemoCryptoTrader.Domain.Models
 {
-    class Account
+    public class Account
     {
         public int Id { get; set; }
         public User AccountHolder { get; set; }
