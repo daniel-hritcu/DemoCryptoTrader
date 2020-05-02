@@ -3,7 +3,37 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30011.22
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DemoCryptoTrader.WPF", "DemoCryptoTrader.WPF\DemoCryptoTrader.WPF.csproj", "{34A5B164-AB4F-4D0D-994C-7E1953918D2C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DemoCryptoTrader.Domain", "DemoCryptoTrader.Domain\DemoCryptoTrader.Domain.csproj", "{60D5A2FD-4FFA-4342-8CB9-81CE5A8FF3C1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DemoCryptoTrader.EntityFramework", "DemoCryptoTrader.EntityFramework\DemoCryptoTrader.EntityFramework.csproj", "{0D5C5773-EC07-485A-A546-B3599616EC1B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DemoCryptoTrader.CoinGekoAPI", "DemoCryptoTrader.CoinGekoAPI\DemoCryptoTrader.CoinGekoAPI.csproj", "{15FBC213-93CA-44BC-9A1C-B14BD9867D01}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{34A5B164-AB4F-4D0D-994C-7E1953918D2C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{34A5B164-AB4F-4D0D-994C-7E1953918D2C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{34A5B164-AB4F-4D0D-994C-7E1953918D2C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{34A5B164-AB4F-4D0D-994C-7E1953918D2C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{60D5A2FD-4FFA-4342-8CB9-81CE5A8FF3C1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{60D5A2FD-4FFA-4342-8CB9-81CE5A8FF3C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{60D5A2FD-4FFA-4342-8CB9-81CE5A8FF3C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{60D5A2FD-4FFA-4342-8CB9-81CE5A8FF3C1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0D5C5773-EC07-485A-A546-B3599616EC1B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0D5C5773-EC07-485A-A546-B3599616EC1B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0D5C5773-EC07-485A-A546-B3599616EC1B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0D5C5773-EC07-485A-A546-B3599616EC1B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{15FBC213-93CA-44BC-9A1C-B14BD9867D01}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{15FBC213-93CA-44BC-9A1C-B14BD9867D01}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{15FBC213-93CA-44BC-9A1C-B14BD9867D01}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{15FBC213-93CA-44BC-9A1C-B14BD9867D01}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
