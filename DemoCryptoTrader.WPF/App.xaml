@@ -1,14 +1,40 @@
 ﻿<Application x:Class="DemoCryptoTrader.WPF.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             
+             xmlns:viewModels="clr-namespace:DemoCryptoTrader.WPF.ViewModels"
+             xmlns:views="clr-namespace:DemoCryptoTrader.WPF.Views"
+             
              xmlns:local="clr-namespace:DemoCryptoTrader.WPF">
     <Application.Resources>
 
         <ResourceDictionary>
+            <!--Basic Custom Style-->
             <ResourceDictionary.MergedDictionaries>
-                <!--Basic Custom Style-->
                 <ResourceDictionary Source="/Styles/Base.xaml"/>
             </ResourceDictionary.MergedDictionaries>
+
+                <!--Views , View Models-->
+            <DataTemplate DataType="{x:Type viewModels:HomeViewModel}">
+                <views:HomeView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type viewModels:PortfolioViewModel}">
+                <views:PortfolioView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type viewModels:BuyViewModel}">
+                <views:BuyView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type viewModels:SellViewModel}">
+                <views:SellView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type viewModels:AuthViewModel}">
+                <views:AuthView/>
+            </DataTemplate>
+
         </ResourceDictionary>
         
     </Application.Resources>
