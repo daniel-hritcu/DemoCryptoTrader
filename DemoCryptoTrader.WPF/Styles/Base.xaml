@@ -1,0 +1,14 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:DemoCryptoTrader.WPF.Styles">
+    <!--Colors-->
+    <Color x:Key="ColorPrimaryAccent">#92c7a3</Color>
+    <Color x:Key="ColorPrimaryLight">#d8e3de</Color>
+    <Color x:Key="ColorPrimaryDark">#215a6d</Color>
+    
+    <!--Brushes-->
+    <SolidColorBrush x:Key="BrushLogoBackground" Color="{StaticResource ColorPrimaryDark}"/>
+    <SolidColorBrush x:Key="BrushNavBackground" Color="{StaticResource ColorPrimaryLight}"/>
+    <SolidColorBrush x:Key="BrushNavSelected" Color="{StaticResource ColorPrimaryAccent}"/>
+    
+</ResourceDictionary>
