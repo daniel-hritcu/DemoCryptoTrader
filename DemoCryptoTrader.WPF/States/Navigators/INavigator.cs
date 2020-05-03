@@ -18,6 +18,6 @@ namespace DemoCryptoTrader.WPF.States.Navigators
     public interface INavigator
     {
         ViewModelBase CurrentViewModel { get; set; }
-        ICommand UodateCurrentViewModelCommand { get; }
+        ICommand UpdateCurrentViewModelCommand { get; }
     }
 }
