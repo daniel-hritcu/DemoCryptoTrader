@@ -11,8 +11,4 @@
     <ProjectReference Include="..\DemoCryptoTrader.EntityFramework\DemoCryptoTrader.EntityFramework.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Views\" />
-  </ItemGroup>
-
 </Project>

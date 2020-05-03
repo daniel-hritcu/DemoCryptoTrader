@@ -1,4 +1,5 @@
 ﻿using DemoCryptoTrader.WPF.Commands;
+using DemoCryptoTrader.WPF.Models;
 using DemoCryptoTrader.WPF.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -8,7 +9,7 @@ using System.Windows.Input;
 
 namespace DemoCryptoTrader.WPF.States.Navigators
 {
-    public class Navigator : INavigator, INotifyPropertyChanged
+    public class Navigator : ObservableObject, INavigator 
     {
         public ViewModelBase _currentViewModel { get; set; }
 
@@ -43,9 +44,6 @@ namespace DemoCryptoTrader.WPF.States.Navigators
          * the binding that has the property name associated with the EventHandler.
          */
 
-        protected void OnPropertyChanged(string propertyName) 
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
+
     }
 }
