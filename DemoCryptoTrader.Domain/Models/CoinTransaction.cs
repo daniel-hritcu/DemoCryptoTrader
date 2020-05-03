@@ -4,9 +4,8 @@ using System.Text;
 
 namespace DemoCryptoTrader.Domain.Models
 {
-    public class CoinTransaction
+    public class CoinTransaction : DomainObject
     {
-        public int Id { get; set; }
         public Account Account { get; set; }
         public bool IsPurchase { get; set; }
         public CoinAsset Coin { get; set; }
