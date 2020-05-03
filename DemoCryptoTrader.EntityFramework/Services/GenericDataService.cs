@@ -1,6 +1,7 @@
 ﻿using DemoCryptoTrader.Domain.Models;
 using DemoCryptoTrader.Domain.Services;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.ChangeTracking;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -39,10 +40,10 @@ namespace DemoCryptoTrader.EntityFramework.Services
         {
             using (DemoCryptoTraderDBContext context = _contextFactory.CreateDbContext())
             {
-                var createdEntity = await context.Set<T>().AddAsync(entity);
+                EntityEntry<T> createdResult = await context.Set<T>().AddAsync(entity);
                 await context.SaveChangesAsync();
 
-                return createdEntity.Entity;
+                return createdResult.Entity;
             }
         }
 
