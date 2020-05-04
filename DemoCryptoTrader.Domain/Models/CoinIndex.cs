@@ -12,8 +12,8 @@ namespace DemoCryptoTrader.Domain.Models
 
     public class CoinIndex
     {
-        public double Price { get; set; }
-        public string Changes { get; set; }
+        public double Price  { get; set; }
+        public double Change { get; set; }
         public CoinIndexId Id { get; set; }
 
     }

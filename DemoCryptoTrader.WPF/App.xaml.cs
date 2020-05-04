@@ -1,4 +1,5 @@
-﻿using DemoCryptoTrader.WPF.ViewModels;
+﻿using DemoCryptoTrader.CoinGekoAPI.Services;
+using DemoCryptoTrader.WPF.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Configuration;

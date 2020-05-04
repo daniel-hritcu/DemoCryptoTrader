@@ -7,6 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\DemoCryptoTrader.CoinGekoAPI\DemoCryptoTrader.CoinGekoAPI.csproj" />
     <ProjectReference Include="..\DemoCryptoTrader.Domain\DemoCryptoTrader.Domain.csproj" />
     <ProjectReference Include="..\DemoCryptoTrader.EntityFramework\DemoCryptoTrader.EntityFramework.csproj" />
   </ItemGroup>
