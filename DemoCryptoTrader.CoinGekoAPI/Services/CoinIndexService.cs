@@ -4,6 +4,7 @@ using DemoCryptoTrader.Domain.Services;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Net.Http;
 using System.Threading.Tasks;
 
@@ -13,18 +14,24 @@ namespace DemoCryptoTrader.CoinGekoAPI.Services
 {
     public class CoinIndexService : ICoinIndexService
     {
+        static HttpClient client = new HttpClient();
+        //Api base uri
+        string baseUri = "https://api.coingecko.com/api/v3/";
 
         public async Task<CoinIndex> GetCoinIndex(CoinIndexId indexId)
         {
-            string baseUri = "https://api.coingecko.com/api/v3/coins/markets?";
-            string apiCallUri = "vs_currency=usd&ids=";
+            //new null response
+            CoinIndex coinIndex = null;
+            //Api market uri
+            string apiCallUri = "coins/markets?vs_currency=usd&ids=";
+            //Full api uri
             string uri = baseUri + apiCallUri + GetSuffix(indexId);
 
-            using (HttpClient client = new HttpClient())
-            {
-                //Get httpResponse from api
-                HttpResponseMessage httpResponse = await client.GetAsync("bitcoin");
+            //Get httpResponse from api
+            HttpResponseMessage httpResponse = await client.GetAsync(uri);
 
+            if (httpResponse.IsSuccessStatusCode) 
+            {
                 //Get json string from httpResponse
                 string jsonResponse = await httpResponse.Content.ReadAsStringAsync();
 
@@ -32,25 +39,28 @@ namespace DemoCryptoTrader.CoinGekoAPI.Services
                 MarketCoinIndex coinIndexResponse = MarketCoinIndex.FromJson(jsonResponse)[0];
 
                 //Return CoinIndex model from Domain layer
-                CoinIndex coinIndex = new CoinIndex
+                coinIndex = new CoinIndex
                 {
                     Price = coinIndexResponse.CurrentPrice,
                     Change = coinIndexResponse.PriceChangePercentage24H,
                     Id = indexId
                 };
-
-                return coinIndex;
             }
+
+            return coinIndex;
+
         }
 
         private string GetSuffix(CoinIndexId indexId)
         {
             switch (indexId)
             {
-                case CoinIndexId.bitcoin:
+                case CoinIndexId.Bitcoin:
                     return "bitcoin";
-                case CoinIndexId.etherium:
+                case CoinIndexId.Ethereum:
                     return "ethereum";
+                case CoinIndexId.Litecoin:
+                    return "litecoin";
                 default:
                     //TODO: fix this later
                     return "bitcoin";

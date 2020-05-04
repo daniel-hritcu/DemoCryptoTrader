@@ -6,8 +6,9 @@ namespace DemoCryptoTrader.Domain.Models
 {
     public enum CoinIndexId
     { 
-        bitcoin,
-        etherium
+        Bitcoin,
+        Ethereum,
+        Litecoin
     }
 
     public class CoinIndex

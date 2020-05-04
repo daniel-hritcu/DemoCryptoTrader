@@ -1,4 +1,5 @@
-﻿using DemoCryptoTrader.WPF.States.Navigators;
+﻿using DemoCryptoTrader.CoinGekoAPI.Services;
+using DemoCryptoTrader.WPF.States.Navigators;
 using DemoCryptoTrader.WPF.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -34,7 +35,7 @@ namespace DemoCryptoTrader.WPF.Commands
                         _navigator.CurrentViewModel = new AuthViewModel();
                         break;
                     case ViewType.Home:
-                        _navigator.CurrentViewModel = new HomeViewModel();
+                        _navigator.CurrentViewModel = new HomeViewModel(CoinIndexViewModel.LoadCoinIndexViewModel(new CoinIndexService()));
                         break;
                     case ViewType.Portfolio:
                         _navigator.CurrentViewModel = new PortfolioViewModel();
