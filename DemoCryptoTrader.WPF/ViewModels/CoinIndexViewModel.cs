@@ -7,13 +7,51 @@ using System.Threading.Tasks;
 
 namespace DemoCryptoTrader.WPF.ViewModels
 {
-    public class CoinIndexViewModel
+    public class CoinIndexViewModel : ViewModelBase
     {
         private readonly ICoinIndexService _coinIndexService;
 
-        public CoinIndex Bitcoin { get; set; }
-        public CoinIndex Ethereum { get; set; }
-        public CoinIndex Litecoin { get; set; }
+        private CoinIndex _bitcoin;
+        public CoinIndex Bitcoin
+        {
+            get
+            {
+                return _bitcoin;
+            }
+            set
+            {
+                _bitcoin = value;
+                OnPropertyChanged(nameof(Bitcoin));
+            }
+        }
+
+        private CoinIndex _ethereum;
+        public CoinIndex Ethereum
+        {
+            get
+            {
+                return _ethereum;
+            }
+            set
+            {
+                _ethereum = value;
+                OnPropertyChanged(nameof(Ethereum));
+            }
+        }
+
+        private CoinIndex _litecoin;
+        public CoinIndex Litecoin
+        {
+            get
+            {
+                return _litecoin;
+            }
+            set
+            {
+                _litecoin = value;
+                OnPropertyChanged(nameof(Litecoin));
+            }
+        }
 
         public CoinIndexViewModel(ICoinIndexService coinIndexService)
         {
