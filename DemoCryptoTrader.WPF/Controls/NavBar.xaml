@@ -23,7 +23,7 @@
         </Grid.RowDefinitions>
 
         <!--Logo-->
-        <TextBlock Grid.Row="0" Style="{StaticResource LogoTextBlock}" Text="Demo Crytpo Trader" Background="{StaticResource BrushLogoBackground}"/>
+        <TextBlock Grid.Row="0" Style="{StaticResource LogoTextBlock}" Text="Demo Crypto Trader" Background="{StaticResource BrushLogoBackground}"/>
 
         <!--Nav Bar-->
         <!--RenderOptions.EdgeMode="Aliased" is a fix for buggy visuals on some computers for the nav buttons-->

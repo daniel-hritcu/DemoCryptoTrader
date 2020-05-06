@@ -18,6 +18,9 @@
     <SolidColorBrush x:Key="BrushLogoBackground" Color="{StaticResource ColorPrimaryDark}"/>
     <SolidColorBrush x:Key="BrushNavBackground" Color="{StaticResource ColorPrimaryLight}"/>
     <SolidColorBrush x:Key="BrushNavSelected" Color="{StaticResource ColorPrimaryAccent}"/>
+    <SolidColorBrush x:Key="BrushButton" Color="{StaticResource ColorPrimaryDark}"/>
+    <SolidColorBrush x:Key="BrushButtonHover" Color="{StaticResource ColorPrimaryAccent}"/>
+    
     <!--/Brushes-->
     
     <!--NavBar-->
@@ -74,4 +77,43 @@
     </Style>
     <!--/NavBar-->
     
+    <!--TextBoxes-->
+    <!--Text Boxes-->
+    <Style TargetType="TextBox">
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="TextBox">
+                    <Border BorderThickness="1" BorderBrush="Gray" CornerRadius="3">
+                        <ScrollViewer x:Name="PART_ContentHost"/>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!--Buttons-->
+    <Style TargetType="Button">
+        <Setter Property="Background" Value="{StaticResource BrushButton}"/>
+        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="Padding" Value="10 5"/>
+        <Setter Property="HorizontalAlignment" Value="Center"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border CornerRadius="3" Background="{TemplateBinding Background}" Padding="{TemplateBinding Padding}" Margin="{TemplateBinding Margin}">
+                        <ContentPresenter />
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="{StaticResource BrushButtonHover}"/>
+                <Setter Property="Foreground" Value="Black"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
 </ResourceDictionary>

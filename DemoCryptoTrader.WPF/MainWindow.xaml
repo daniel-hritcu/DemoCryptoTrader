@@ -8,7 +8,7 @@
         xmlns:controls="clr-namespace:DemoCryptoTrader.WPF.Controls"
         
         mc:Ignorable="d"
-        Title="Demo Crypto Trader" Height="450" Width="800">
+        Title="Demo Crypto Trader" Height="550" Width="800">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
@@ -16,6 +16,9 @@
         </Grid.RowDefinitions>
         
         <controls:NavBar Grid.Row="0" DataContext="{Binding Navigator}"/>
-        <ContentControl Grid.Row="1" Content="{Binding Navigator.CurrentViewModel}"/>
+        <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
+            <ContentControl  Content="{Binding Navigator.CurrentViewModel}"/>
+        </ScrollViewer>
+        
     </Grid>
 </Window>
