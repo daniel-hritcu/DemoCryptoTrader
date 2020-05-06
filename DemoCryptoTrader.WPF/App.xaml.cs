@@ -20,16 +20,8 @@ namespace DemoCryptoTrader.WPF
     public partial class App : Application
     {
 
-        protected override async void OnStartup(StartupEventArgs e)
+        protected override void OnStartup(StartupEventArgs e)
         {
-            IBasicDataService<Account> accountService = new AccountDataService(new EntityFramework.DemoCryptoTraderDbContextFactory());
-            ICoinIndexService coinIndexService = new CoinIndexService();
-            IBuyCoinService buyCoinService = new BuyCoinService(coinIndexService, accountService);
-
-            Account buyer = await accountService.Get(1);
-
-            await buyCoinService.BuyCoin(buyer, "bitcoin", 0.1);
-
             Window window = new MainWindow();
             window.DataContext = new MainViewModel();
             window.Show();
