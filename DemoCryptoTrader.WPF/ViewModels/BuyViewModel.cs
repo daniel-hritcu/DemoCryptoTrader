@@ -4,7 +4,7 @@ using System.Text;
 
 namespace DemoCryptoTrader.WPF.ViewModels
 {
-    class BuyViewModel : ViewModelBase
+    public class BuyViewModel : ViewModelBase
     {
     }
 }

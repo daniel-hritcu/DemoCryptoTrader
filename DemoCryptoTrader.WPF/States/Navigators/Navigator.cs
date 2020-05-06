@@ -1,6 +1,7 @@
 ﻿using DemoCryptoTrader.WPF.Commands;
 using DemoCryptoTrader.WPF.Models;
 using DemoCryptoTrader.WPF.ViewModels;
+using DemoCryptoTrader.WPF.ViewModels.Factories;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -9,41 +10,27 @@ using System.Windows.Input;
 
 namespace DemoCryptoTrader.WPF.States.Navigators
 {
-    public class Navigator : ObservableObject, INavigator 
-    {
-        public ViewModelBase _currentViewModel { get; set; }
-
-        public ViewModelBase CurrentViewModel 
+        public class Navigator : ObservableObject, INavigator
         {
-            get 
+            private ViewModelBase _currentViewModel;
+            public ViewModelBase CurrentViewModel
             {
-                return _currentViewModel;
+                get
+                {
+                    return _currentViewModel;
+                }
+                set
+                {
+                    _currentViewModel = value;
+                    OnPropertyChanged(nameof(CurrentViewModel));
+                }
             }
-            set
+
+            public ICommand UpdateCurrentViewModelCommand { get; set; }
+
+            public Navigator(IRootDemoCryptoTraderViewModelFactory viewModelFactory)
             {
-                _currentViewModel = value;
-                OnPropertyChanged(nameof(CurrentViewModel));
+                UpdateCurrentViewModelCommand = new UpdateCurrentViewModelCommand(this, viewModelFactory);
             }
         }
-
-
-
-
-
-       /* I don't like the command beeing in the Navigator Object,
-        * but since the command is in it's own class, there should 
-        * not be a big problem.
-        */
-        public ICommand UpdateCurrentViewModelCommand => new UpdateCurrentViewModelCommand(this);
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        /*
-         * The UI sees that this class implements the INotifyPropertyChanged,
-         * so it will subscribe to the PropertyChanged event, it will update
-         * the binding that has the property name associated with the EventHandler.
-         */
-
-
     }
-}

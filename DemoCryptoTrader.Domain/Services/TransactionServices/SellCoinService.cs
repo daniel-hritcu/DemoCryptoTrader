@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DemoCryptoTrader.Domain.Services.TransactionServices
 {
-    class SellCoinService : ISellCoinService
+    public class SellCoinService : ISellCoinService
     {
         private readonly ICoinIndexService _coinIndexService;
         private readonly IBasicDataService<Account> _accountService;

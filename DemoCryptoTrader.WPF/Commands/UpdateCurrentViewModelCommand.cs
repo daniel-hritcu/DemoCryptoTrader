@@ -1,6 +1,7 @@
 ﻿using DemoCryptoTrader.CoinGekoAPI.Services;
 using DemoCryptoTrader.WPF.States.Navigators;
 using DemoCryptoTrader.WPF.ViewModels;
+using DemoCryptoTrader.WPF.ViewModels.Factories;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -12,11 +13,13 @@ namespace DemoCryptoTrader.WPF.Commands
     {
         public event EventHandler CanExecuteChanged;
 
-        private INavigator _navigator;
+        private readonly INavigator _navigator;
+        private readonly IRootDemoCryptoTraderViewModelFactory _viewModelFactory;
 
-        public UpdateCurrentViewModelCommand(INavigator navigator)
+        public UpdateCurrentViewModelCommand(INavigator navigator, IRootDemoCryptoTraderViewModelFactory viewModelFactory)
         {
             _navigator = navigator;
+            _viewModelFactory = viewModelFactory;
         }
 
         public bool CanExecute(object parameter)
@@ -29,26 +32,8 @@ namespace DemoCryptoTrader.WPF.Commands
             if (parameter is ViewType)
             {
                 ViewType viewType = (ViewType)parameter;
-                switch (viewType)
-                {
-                    case ViewType.Login:
-                        _navigator.CurrentViewModel = new AuthViewModel();
-                        break;
-                    case ViewType.Home:
-                        _navigator.CurrentViewModel = new HomeViewModel(TopCoinViewModel.LoadCoinIndexViewModel(new CoinIndexService()));
-                        break;
-                    case ViewType.Portfolio:
-                        _navigator.CurrentViewModel = new PortfolioViewModel();
-                        break;
-                    case ViewType.Buy:
-                        _navigator.CurrentViewModel = new BuyViewModel();
-                        break;
-                    case ViewType.Sell:
-                        _navigator.CurrentViewModel = new SellViewModel();
-                        break;
-                    default:
-                        break;
-                }
+
+                _navigator.CurrentViewModel = _viewModelFactory.CreateViewModel(viewType);
             }
         }
     }
