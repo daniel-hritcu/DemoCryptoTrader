@@ -22,7 +22,7 @@ namespace DemoCryptoTrader.CoinGekoAPI.Models
     {
         [J("id", NullValueHandling = N.Ignore)] public string Id { get; set; }
         [J("symbol", NullValueHandling = N.Ignore)] public string Symbol { get; set; }
-        [J("name", NullValueHandling = N.Ignore)] public string Name { get; set; }
+        [J("name", Required = R.Always)] public string Name { get; set; }
         [J("image", NullValueHandling = N.Ignore)] public Uri Image { get; set; }
         [J("current_price", Required = R.Always)] public double CurrentPrice { get; set; }
         [J("market_cap", NullValueHandling = N.Ignore)] public long? MarketCap { get; set; }

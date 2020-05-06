@@ -11,8 +11,8 @@ namespace DemoCryptoTrader.WPF.ViewModels
     {
         private readonly ICoinIndexService _coinIndexService;
 
-        private TopCoinIndex _bitcoin;
-        public TopCoinIndex Bitcoin
+        private CoinIndex _bitcoin;
+        public CoinIndex Bitcoin
         {
             get
             {
@@ -25,8 +25,8 @@ namespace DemoCryptoTrader.WPF.ViewModels
             }
         }
 
-        private TopCoinIndex _ethereum;
-        public TopCoinIndex Ethereum
+        private CoinIndex _ethereum;
+        public CoinIndex Ethereum
         {
             get
             {
@@ -39,8 +39,8 @@ namespace DemoCryptoTrader.WPF.ViewModels
             }
         }
 
-        private TopCoinIndex _litecoin;
-        public TopCoinIndex Litecoin
+        private CoinIndex _litecoin;
+        public CoinIndex Litecoin
         {
             get
             {

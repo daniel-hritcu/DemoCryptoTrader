@@ -11,10 +11,11 @@ namespace DemoCryptoTrader.Domain.Models
         Litecoin
     }
 
-    public class TopCoinIndex
+    public class CoinIndex
     {
         public double Price  { get; set; }
         public double Change { get; set; }
+        public string Name { get; set; }
         public CoinIndexId Id { get; set; }
 
     }

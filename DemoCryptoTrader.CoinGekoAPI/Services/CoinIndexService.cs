@@ -1,6 +1,7 @@
 ﻿using DemoCryptoTrader.CoinGekoAPI.Models;
 using DemoCryptoTrader.Domain.Models;
 using DemoCryptoTrader.Domain.Services;
+using DemoCryptoTrader.Domain.Exceptions;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -14,37 +15,67 @@ namespace DemoCryptoTrader.CoinGekoAPI.Services
 {
     public class CoinIndexService : ICoinIndexService
     {
-        static HttpClient client = new HttpClient();
-        //Api base uri
-        string baseUri = "https://api.coingecko.com/api/v3/";
+        public async Task<CoinIndex> GetCoinIndex(CoinIndexId indexId)
+        {
+            //Get CoinIndex
+            CoinIndex coinIndex = await GetCoin(GetSuffix(indexId));
 
-        public async Task<TopCoinIndex> GetCoinIndex(CoinIndexId indexId)
+            //Set coinIndexId
+            coinIndex.Id = indexId;
+ 
+            //Return coinIndex
+            return coinIndex;
+        }
+
+        public async Task<CoinIndex> GetCoinPrice(string coinId)
+        {
+            //Get CoinIndex
+            CoinIndex coinIndex = await GetCoin(coinId);
+
+            //Return coinIndex
+            return coinIndex;
+        }
+
+
+        //Helper methods
+
+        private async Task<CoinIndex> GetCoin(string coinId)
         {
             //new null response
-            TopCoinIndex coinIndex = null;
+            CoinIndex coinIndex = null;
+
             //Api market uri
-            string apiCallUri = "coins/markets?vs_currency=usd&ids=";
-            //Full api uri
-            string uri = baseUri + apiCallUri + GetSuffix(indexId);
+            string apiCallUri = "coins/markets?vs_currency=usd&ids=" + coinId;
 
-            //Get httpResponse from api
-            HttpResponseMessage httpResponse = await client.GetAsync(uri);
-
-            if (httpResponse.IsSuccessStatusCode) 
+            using (CoinGekoApiHttpClient client = new CoinGekoApiHttpClient())
             {
-                //Get json string from httpResponse
-                string jsonResponse = await httpResponse.Content.ReadAsStringAsync();
+                //Get httpResponse from api
+                HttpResponseMessage httpResponse = await client.GetAsync(apiCallUri);
 
-                //Deserialize the jsonResponse into a response model
-                CoinIndexResponse coinIndexResponse = CoinIndexResponse.FromJson(jsonResponse)[0];
-
-                //Return CoinIndex model from Domain layer
-                coinIndex = new TopCoinIndex
+                if (httpResponse.IsSuccessStatusCode)
                 {
-                    Price = coinIndexResponse.CurrentPrice,
-                    Change = coinIndexResponse.PriceChangePercentage24H,
-                    Id = indexId
-                };
+                    //Get json string from httpResponse
+                    string jsonResponse = await httpResponse.Content.ReadAsStringAsync();
+
+                    //Deserialize the jsonResponse into a response model
+                    CoinIndexResponse coinIndexResponse = CoinIndexResponse.FromJson(jsonResponse)[0];
+
+                    //Check if response is not broken
+                    //We don't want to buy non existing or 0$ coins
+                    if (coinIndexResponse.CurrentPrice == 0)
+                    {
+                        throw new InvalidCoinIdException(coinId);
+                    }
+
+                    //Return CoinIndex model from Domain layer
+                    coinIndex = new CoinIndex
+                    {
+                        Price = coinIndexResponse.CurrentPrice,
+                        Change = coinIndexResponse.PriceChangePercentage24H,
+                        Name = coinIndexResponse.Name,
+                        Id = new CoinIndexId()
+                    };
+                }
             }
 
             return coinIndex;
@@ -62,8 +93,7 @@ namespace DemoCryptoTrader.CoinGekoAPI.Services
                 case CoinIndexId.Litecoin:
                     return "litecoin";
                 default:
-                    //TODO: fix this later
-                    return "bitcoin";
+                    throw new Exception("CoinIndexId not defined.");
             }
         }
     }

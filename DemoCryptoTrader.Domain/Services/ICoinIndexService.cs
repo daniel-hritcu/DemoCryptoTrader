@@ -8,6 +8,8 @@ namespace DemoCryptoTrader.Domain.Services
 {
     public interface ICoinIndexService
     {
-        Task<TopCoinIndex> GetCoinIndex(CoinIndexId indexId);
+        Task<CoinIndex> GetCoinIndex(CoinIndexId indexId);
+
+        Task<CoinIndex> GetCoinPrice(string coinId);
     }
 }
