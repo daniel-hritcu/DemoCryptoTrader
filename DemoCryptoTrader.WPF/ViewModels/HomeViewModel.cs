@@ -6,11 +6,11 @@ namespace DemoCryptoTrader.WPF.ViewModels
 {
     class HomeViewModel : ViewModelBase
     {
-        public CoinIndexViewModel CoinIndexViewModel { get; set; }
+        public TopCoinViewModel TopCoinViewModel { get; set; }
 
-        public HomeViewModel(CoinIndexViewModel coinIndexViewModel)
+        public HomeViewModel(TopCoinViewModel topcoinViewModel)
         {
-            CoinIndexViewModel = coinIndexViewModel;
+            TopCoinViewModel = topcoinViewModel;
         }
     }
 }

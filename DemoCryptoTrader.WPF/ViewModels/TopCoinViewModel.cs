@@ -7,12 +7,12 @@ using System.Threading.Tasks;
 
 namespace DemoCryptoTrader.WPF.ViewModels
 {
-    public class CoinIndexViewModel : ViewModelBase
+    public class TopCoinViewModel : ViewModelBase
     {
         private readonly ICoinIndexService _coinIndexService;
 
-        private CoinIndex _bitcoin;
-        public CoinIndex Bitcoin
+        private TopCoinIndex _bitcoin;
+        public TopCoinIndex Bitcoin
         {
             get
             {
@@ -25,8 +25,8 @@ namespace DemoCryptoTrader.WPF.ViewModels
             }
         }
 
-        private CoinIndex _ethereum;
-        public CoinIndex Ethereum
+        private TopCoinIndex _ethereum;
+        public TopCoinIndex Ethereum
         {
             get
             {
@@ -39,8 +39,8 @@ namespace DemoCryptoTrader.WPF.ViewModels
             }
         }
 
-        private CoinIndex _litecoin;
-        public CoinIndex Litecoin
+        private TopCoinIndex _litecoin;
+        public TopCoinIndex Litecoin
         {
             get
             {
@@ -53,14 +53,14 @@ namespace DemoCryptoTrader.WPF.ViewModels
             }
         }
 
-        public CoinIndexViewModel(ICoinIndexService coinIndexService)
+        public TopCoinViewModel(ICoinIndexService coinIndexService)
         {
             _coinIndexService = coinIndexService;
         }
 
-        public static CoinIndexViewModel LoadCoinIndexViewModel(ICoinIndexService coinIndexService)
+        public static TopCoinViewModel LoadCoinIndexViewModel(ICoinIndexService coinIndexService)
         {
-            CoinIndexViewModel coinIndexViewModel = new CoinIndexViewModel(coinIndexService);
+            TopCoinViewModel coinIndexViewModel = new TopCoinViewModel(coinIndexService);
 
             /*
              * We don't want to await the LoadCoinIndex. If we wait for it, it will trigger a chain
@@ -83,7 +83,7 @@ namespace DemoCryptoTrader.WPF.ViewModels
             });
 
             //Ethereum
-            _coinIndexService.GetCoinIndex(CoinIndexId.Bitcoin).ContinueWith(task =>
+            _coinIndexService.GetCoinIndex(CoinIndexId.Ethereum).ContinueWith(task =>
             {
                 if (task.Exception == null)
                 {
@@ -92,7 +92,7 @@ namespace DemoCryptoTrader.WPF.ViewModels
             });
 
             //Litecoin
-            _coinIndexService.GetCoinIndex(CoinIndexId.Bitcoin).ContinueWith(task =>
+            _coinIndexService.GetCoinIndex(CoinIndexId.Litecoin).ContinueWith(task =>
             {
                 if (task.Exception == null)
                 {

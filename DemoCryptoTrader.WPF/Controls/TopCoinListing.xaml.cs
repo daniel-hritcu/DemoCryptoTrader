@@ -14,11 +14,11 @@ using System.Windows.Shapes;
 namespace DemoCryptoTrader.WPF.Controls
 {
     /// <summary>
-    /// Interaction logic for CoinIndexCard.xaml
+    /// Interaction logic for TopCoinListing.xaml
     /// </summary>
-    public partial class CoinIndexCard : UserControl
+    public partial class TopCoinListing : UserControl
     {
-        public CoinIndexCard()
+        public TopCoinListing()
         {
             InitializeComponent();
         }

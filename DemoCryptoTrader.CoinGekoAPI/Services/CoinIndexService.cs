@@ -18,10 +18,10 @@ namespace DemoCryptoTrader.CoinGekoAPI.Services
         //Api base uri
         string baseUri = "https://api.coingecko.com/api/v3/";
 
-        public async Task<CoinIndex> GetCoinIndex(CoinIndexId indexId)
+        public async Task<TopCoinIndex> GetCoinIndex(CoinIndexId indexId)
         {
             //new null response
-            CoinIndex coinIndex = null;
+            TopCoinIndex coinIndex = null;
             //Api market uri
             string apiCallUri = "coins/markets?vs_currency=usd&ids=";
             //Full api uri
@@ -36,10 +36,10 @@ namespace DemoCryptoTrader.CoinGekoAPI.Services
                 string jsonResponse = await httpResponse.Content.ReadAsStringAsync();
 
                 //Deserialize the jsonResponse into a response model
-                MarketCoinIndex coinIndexResponse = MarketCoinIndex.FromJson(jsonResponse)[0];
+                CoinIndexResponse coinIndexResponse = CoinIndexResponse.FromJson(jsonResponse)[0];
 
                 //Return CoinIndex model from Domain layer
-                coinIndex = new CoinIndex
+                coinIndex = new TopCoinIndex
                 {
                     Price = coinIndexResponse.CurrentPrice,
                     Change = coinIndexResponse.PriceChangePercentage24H,

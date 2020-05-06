@@ -13,8 +13,7 @@
             <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
 
-        <TextBlock Text="HomeView"/>
-        <controls:CoinIndexCard Grid.Row="1" Margin="0 10" HorizontalAlignment="Left" DataContext="{Binding CoinIndexViewModel.Bitcoin}"/>
-
+        <controls:TopCoinListing Grid.Row="1" Margin="0 10" HorizontalAlignment="Center" DataContext="{Binding TopCoinViewModel}"/>
+        
     </Grid>
 </UserControl>

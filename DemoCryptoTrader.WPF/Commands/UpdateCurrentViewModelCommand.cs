@@ -35,7 +35,7 @@ namespace DemoCryptoTrader.WPF.Commands
                         _navigator.CurrentViewModel = new AuthViewModel();
                         break;
                     case ViewType.Home:
-                        _navigator.CurrentViewModel = new HomeViewModel(CoinIndexViewModel.LoadCoinIndexViewModel(new CoinIndexService()));
+                        _navigator.CurrentViewModel = new HomeViewModel(TopCoinViewModel.LoadCoinIndexViewModel(new CoinIndexService()));
                         break;
                     case ViewType.Portfolio:
                         _navigator.CurrentViewModel = new PortfolioViewModel();
