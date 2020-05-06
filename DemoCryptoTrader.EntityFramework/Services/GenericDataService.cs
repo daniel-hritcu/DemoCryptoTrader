@@ -19,12 +19,12 @@ namespace DemoCryptoTrader.EntityFramework.Services
          * avoid problems with multiple threads.
          */
         private readonly DemoCryptoTraderDbContextFactory _contextFactory;
-        private readonly NonQuerryDataService<T> _nonQuerryDataService;
+        private readonly NonQueryDataService<T> _nonQuerryDataService;
 
         public GenericDataService(DemoCryptoTraderDbContextFactory contextFactory)
         {
             _contextFactory = contextFactory;
-            _nonQuerryDataService = new NonQuerryDataService<T>(contextFactory);
+            _nonQuerryDataService = new NonQueryDataService<T>(contextFactory);
         }
 
 

@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace DemoCryptoTrader.EntityFramework.Services
 {
-    class NonQuerryDataService<T> where T : DomainObject
+    class NonQueryDataService<T> where T : DomainObject
     {
         /*
         * We use DbContextFactory instead of DBContext here.
@@ -20,7 +20,7 @@ namespace DemoCryptoTrader.EntityFramework.Services
         */
         private readonly DemoCryptoTraderDbContextFactory _contextFactory;
 
-        public NonQuerryDataService(DemoCryptoTraderDbContextFactory contextFactory)
+        public NonQueryDataService(DemoCryptoTraderDbContextFactory contextFactory)
         {
             _contextFactory = contextFactory;
         }

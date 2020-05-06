@@ -10,6 +10,8 @@ using Microsoft.Extensions.DependencyInjection;
 using DemoCryptoTrader.EntityFramework;
 using DemoCryptoTrader.WPF.States.Navigators;
 using DemoCryptoTrader.WPF.ViewModels.Factories;
+using Microsoft.AspNet.Identity;
+using DemoCryptoTrader.Domain.Services.AuthServices;
 
 namespace DemoCryptoTrader.WPF
 {
@@ -35,6 +37,8 @@ namespace DemoCryptoTrader.WPF
             
             //Singleton - one instance per app
             services.AddSingleton<DemoCryptoTraderDbContextFactory>();
+            services.AddSingleton<IAuthService, AuthService>();
+            services.AddSingleton<IAccountService, AccountDataService>();
             services.AddSingleton<ICoinIndexService, CoinIndexService>();
             services.AddSingleton<IBasicDataService<Account>, AccountDataService>();
             services.AddSingleton<IBuyCoinService, BuyCoinService>();
@@ -48,6 +52,8 @@ namespace DemoCryptoTrader.WPF
             services.AddSingleton<IDemoCryptoTraderViewModelFactory<BuyViewModel>, BuyViewModelFactory>();
             services.AddSingleton<IDemoCryptoTraderViewModelFactory<SellViewModel>, SellViewModelFactory>();
             services.AddSingleton<IDemoCryptoTraderViewModelFactory<AuthViewModel>, AuthViewModelFactory>();
+
+            services.AddSingleton<IPasswordHasher, PasswordHasher>();
 
             //Scoped - one instance per scope
             services.AddScoped<INavigator, Navigator>();

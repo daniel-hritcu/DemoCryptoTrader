@@ -7,6 +7,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.AspNet.Identity.Core" Version="2.2.3" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\DemoCryptoTrader.CoinGekoAPI\DemoCryptoTrader.CoinGekoAPI.csproj" />
     <ProjectReference Include="..\DemoCryptoTrader.Domain\DemoCryptoTrader.Domain.csproj" />
     <ProjectReference Include="..\DemoCryptoTrader.EntityFramework\DemoCryptoTrader.EntityFramework.csproj" />
