@@ -12,6 +12,7 @@ using DemoCryptoTrader.WPF.States.Navigators;
 using DemoCryptoTrader.WPF.ViewModels.Factories;
 using Microsoft.AspNet.Identity;
 using DemoCryptoTrader.Domain.Services.AuthServices;
+using DemoCryptoTrader.WPF.States.Authenticators;
 
 namespace DemoCryptoTrader.WPF
 {
@@ -57,6 +58,7 @@ namespace DemoCryptoTrader.WPF
 
             //Scoped - one instance per scope
             services.AddScoped<INavigator, Navigator>();
+            services.AddScoped<IAuthenticator, Authenticator>();
             services.AddScoped<MainViewModel>();
             services.AddScoped<BuyViewModel>();
             services.AddScoped<SellViewModel>();

@@ -13,7 +13,7 @@ namespace DemoCryptoTrader.WPF.ViewModels
         {
             Navigator = navigator;
 
-            Navigator.UpdateCurrentViewModelCommand.Execute(ViewType.Home);
+            Navigator.UpdateCurrentViewModelCommand.Execute(ViewType.Auth);
         }
     }
 }

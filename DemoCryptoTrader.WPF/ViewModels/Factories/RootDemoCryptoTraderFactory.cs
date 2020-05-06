@@ -26,7 +26,7 @@ namespace DemoCryptoTrader.WPF.ViewModels.Factories
         {
             switch (viewType)
             {
-                case ViewType.Login:
+                case ViewType.Auth:
                     return _authViewModelFactory.CreateViewModel();
                 case ViewType.Home:
                     return _homeViewModelFactory.CreateViewModel();

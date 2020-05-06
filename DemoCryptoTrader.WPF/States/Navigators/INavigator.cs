@@ -9,7 +9,7 @@ namespace DemoCryptoTrader.WPF.States.Navigators
     //Available Views
     public enum ViewType
     {
-        Login,
+        Auth,
         Home,
         Portfolio,
         Buy,
