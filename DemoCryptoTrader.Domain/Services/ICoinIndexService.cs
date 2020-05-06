@@ -10,6 +10,6 @@ namespace DemoCryptoTrader.Domain.Services
     {
         Task<CoinIndex> GetCoinIndex(CoinIndexId indexId);
 
-        Task<CoinIndex> GetCoinPrice(string coinId);
+        Task<double> GetCoinPrice(string coinId);
     }
 }

@@ -4,14 +4,16 @@ using DemoCryptoTrader.EntityFramework;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace DemoCryptoTrader.EntityFramework.Migrations
 {
     [DbContext(typeof(DemoCryptoTraderDBContext))]
-    partial class DemoCryptoTraderDBContextModelSnapshot : ModelSnapshot
+    [Migration("20200506180332_correct_asset")]
+    partial class correct_asset
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

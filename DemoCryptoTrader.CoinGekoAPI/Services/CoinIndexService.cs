@@ -1,5 +1,4 @@
-﻿using DemoCryptoTrader.CoinGekoAPI.Models;
-using DemoCryptoTrader.Domain.Models;
+﻿using DemoCryptoTrader.Domain.Models;
 using DemoCryptoTrader.Domain.Services;
 using DemoCryptoTrader.Domain.Exceptions;
 using Newtonsoft.Json;
@@ -27,13 +26,13 @@ namespace DemoCryptoTrader.CoinGekoAPI.Services
             return coinIndex;
         }
 
-        public async Task<CoinIndex> GetCoinPrice(string coinId)
+        public async Task<double> GetCoinPrice(string coinId)
         {
             //Get CoinIndex
             CoinIndex coinIndex = await GetCoin(coinId);
 
             //Return coinIndex
-            return coinIndex;
+            return coinIndex.Price;
         }
 
 

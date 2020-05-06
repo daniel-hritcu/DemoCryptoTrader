@@ -6,7 +6,7 @@
 //
 //    var coinIndexResponse = CoinIndexResponse.FromJson(jsonString);
 
-namespace DemoCryptoTrader.CoinGekoAPI.Models
+namespace DemoCryptoTrader.Domain.Models
 {
     using System;
     using System.Collections.Generic;
@@ -55,12 +55,12 @@ namespace DemoCryptoTrader.CoinGekoAPI.Models
 
     public partial class CoinIndexResponse
     {
-        public static List<CoinIndexResponse> FromJson(string json) => JsonConvert.DeserializeObject<List<CoinIndexResponse>>(json, DemoCryptoTrader.CoinGekoAPI.Models.Converter.Settings);
+        public static List<CoinIndexResponse> FromJson(string json) => JsonConvert.DeserializeObject<List<CoinIndexResponse>>(json, DemoCryptoTrader.Domain.Models.Converter.Settings);
     }
 
     public static class Serialize
     {
-        public static string ToJson(this List<CoinIndexResponse> self) => JsonConvert.SerializeObject(self, DemoCryptoTrader.CoinGekoAPI.Models.Converter.Settings);
+        public static string ToJson(this List<CoinIndexResponse> self) => JsonConvert.SerializeObject(self, DemoCryptoTrader.Domain.Models.Converter.Settings);
     }
 
     internal static class Converter

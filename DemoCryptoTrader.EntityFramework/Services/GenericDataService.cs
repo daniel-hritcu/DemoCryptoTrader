@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace DemoCryptoTrader.EntityFramework.Services
 {
-    class GenericDataService<T> : IBasicDataService<T> where T : DomainObject
+    public class GenericDataService<T> : IBasicDataService<T> where T : DomainObject
     {
         /*
          * We use DbContextFactory instead of DBContext here.
@@ -19,10 +19,12 @@ namespace DemoCryptoTrader.EntityFramework.Services
          * avoid problems with multiple threads.
          */
         private readonly DemoCryptoTraderDbContextFactory _contextFactory;
+        private readonly NonQuerryDataService<T> _nonQuerryDataService;
 
         public GenericDataService(DemoCryptoTraderDbContextFactory contextFactory)
         {
             _contextFactory = contextFactory;
+            _nonQuerryDataService = new NonQuerryDataService<T>(contextFactory);
         }
 
 
@@ -38,25 +40,17 @@ namespace DemoCryptoTrader.EntityFramework.Services
 
         public async Task<T> Create(T entity)
         {
-            using (DemoCryptoTraderDBContext context = _contextFactory.CreateDbContext())
-            {
-                EntityEntry<T> createdResult = await context.Set<T>().AddAsync(entity);
-                await context.SaveChangesAsync();
-
-                return createdResult.Entity;
-            }
+            return await _nonQuerryDataService.Create(entity);
         }
 
         public async Task<bool> Delete(int id)
         {
-            using (DemoCryptoTraderDBContext context = _contextFactory.CreateDbContext())
-            {
-                T entity = await context.Set<T>().FirstOrDefaultAsync((e) => e.Id == id);
-                context.Set<T>().Remove(entity);
-                await context.SaveChangesAsync();
+            return await _nonQuerryDataService.Delete(id);
+        }
 
-                return true;
-            }
+        public async Task<T> Update(int id, T entity)
+        {
+            return await _nonQuerryDataService.Update(id, entity);
         }
 
         public async Task<T> Get(int id)
@@ -79,16 +73,5 @@ namespace DemoCryptoTrader.EntityFramework.Services
             }
         }
 
-        public async Task<T> Update(int id, T entity)
-        {
-            using (DemoCryptoTraderDBContext context = _contextFactory.CreateDbContext())
-            {
-                entity.Id = id;
-                context.Set<T>().Update(entity);
-                await context.SaveChangesAsync();
-
-                return entity;
-            }
-        }
     }
 }
