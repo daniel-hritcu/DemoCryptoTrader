@@ -11,6 +11,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DemoCryptoTrader.EntityFram
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DemoCryptoTrader.CoinGekoAPI", "DemoCryptoTrader.CoinGekoAPI\DemoCryptoTrader.CoinGekoAPI.csproj", "{15FBC213-93CA-44BC-9A1C-B14BD9867D01}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DemoCryptoTrader.Domain.Tests", "DemoCryptoTrader.Domain.Tests\DemoCryptoTrader.Domain.Tests.csproj", "{E6D060C6-C725-4A7E-9870-46B1790F2306}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{15FBC213-93CA-44BC-9A1C-B14BD9867D01}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{15FBC213-93CA-44BC-9A1C-B14BD9867D01}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{15FBC213-93CA-44BC-9A1C-B14BD9867D01}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E6D060C6-C725-4A7E-9870-46B1790F2306}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E6D060C6-C725-4A7E-9870-46B1790F2306}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E6D060C6-C725-4A7E-9870-46B1790F2306}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E6D060C6-C725-4A7E-9870-46B1790F2306}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
