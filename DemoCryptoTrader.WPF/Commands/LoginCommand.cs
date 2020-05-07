@@ -1,4 +1,5 @@
 ﻿using DemoCryptoTrader.WPF.States.Authenticators;
+using DemoCryptoTrader.WPF.States.Navigators;
 using DemoCryptoTrader.WPF.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -30,6 +31,7 @@ namespace DemoCryptoTrader.WPF.Commands
         {
             PasswordBox pb = parameter as PasswordBox;
             bool success = await _authenticator.Login(_authViewModel.Username, pb.Password);
+            //_mainViewModel.Navigator.UpdateCurrentViewModelCommand.Execute(ViewType.Home);
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using DemoCryptoTrader.WPF.Commands;
 using DemoCryptoTrader.WPF.States.Authenticators;
+using DemoCryptoTrader.WPF.States.Navigators;
 using System;
 using System.Collections.Generic;
 using System.Text;
