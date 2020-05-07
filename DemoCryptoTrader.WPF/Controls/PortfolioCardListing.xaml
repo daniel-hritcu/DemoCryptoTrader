@@ -12,8 +12,6 @@
             <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
 
-        <TextBlock Grid.Row="0" FontSize="28" HorizontalAlignment="Center" Text="Portfolio"/>
-
         <Grid Grid.Row="1" Margin="0 10" HorizontalAlignment="Center">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>

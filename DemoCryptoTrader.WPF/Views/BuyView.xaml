@@ -13,7 +13,8 @@
         </Grid.RowDefinitions>
 
         <WrapPanel Grid.Row="0" HorizontalAlignment="Center">
-            <TextBox Width="100" Text="{Binding CoinId, UpdateSourceTrigger=PropertyChanged}"/>
+            <TextBlock Text="Try 'bitcoin'" VerticalAlignment="Center" Padding="5"/>
+            <TextBox Width="100" Text="{Binding CoinId, UpdateSourceTrigger=PropertyChanged , FallbackValue=bitcoin}"/>
             <Button Margin="5 0 0 0" Content="Search" Command="{Binding SearchCoinCommand}"/>
         </WrapPanel>
 
